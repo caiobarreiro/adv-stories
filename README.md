@@ -34,16 +34,6 @@ export class AppModule {}
     <adv-stories [stories]="stories"></adv-stories>
 ```
 
-
-### Options 
-
-You can set options as follows:
-
-```html
-    <!-- example for pt-BR money -->
-    <input currencyMask [(ngModel)]="value" [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"/>
-```
-
 ```ts
     stories =[
         {url:'assets/stories/01.jpg', duration: '3s'},
