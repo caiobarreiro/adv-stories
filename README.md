@@ -2,6 +2,8 @@
 
 A very simple component that creates a slide-show much like the Instagram Stories.
 
+Demo: https://angular-ivy-tj26we.stackblitz.io
+
 ## Getting Started
 
 ### Installing and Importing
