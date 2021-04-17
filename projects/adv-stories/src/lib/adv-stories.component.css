@@ -1,0 +1,144 @@
+@keyframes zuckSlideTime {
+    0% {
+      max-width: 0;
+    }
+    100% {
+      max-width: 100%;
+    }
+  }
+  
+  @keyframes zuckLoading {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+.insta-stories {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+    
+    display: grid;
+    justify-content: center;
+    align-content: center;
+
+    background: #191919;
+
+    height: 100vh;
+    width: 100vw;
+    max-height: 100vh;
+    max-width: 100vw;
+
+    overflow: hidden;
+}
+
+.insta-stories.hide {
+    display: none;
+}
+
+.slides {
+    
+}
+
+
+.slides .slide {
+    display: none;
+}
+
+.slides .slide.active {
+    display: block;
+}
+
+.slides .slide img{
+   max-height: 100vh;
+}
+
+.slides .slide .slide_cover {
+    height: 100vh;
+    width: 100vw;
+    background: red;
+    display: block;
+    position: absolute;
+    right: 0;
+    opacity: 0;
+}
+
+.slides .slide .slide_prev {
+    height: 100vh;
+    width: 20vw;
+    background: red;
+    display: block;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+}
+
+.slides .slide .slide_next {
+    height: 100vh;
+    width: 20vw;
+    background: blue;
+    display: block;
+    position: absolute;
+    right: 0;
+    opacity: 0;
+}
+
+
+/* Pointers */
+.pointers {
+    display: table;
+    table-layout: fixed;
+    border-spacing: 6px;
+    border-collapse: separate;
+    position: absolute;
+    right: calc(50vw - 50vh);
+    z-index: 100020;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+    width: 100vw;
+    left: 0;
+    right: 0;
+}
+.pointers > * {
+    display: table-row;
+}
+.pointers > * > * {
+    display: table-cell;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 2px;
+}
+.pointers > * > .seen {
+    background: #fff;
+}
+.pointers > * > .active > b {
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+}
+.pointers > * > * > b {
+    background: #fff;
+    width: auto;
+    max-width: 0;
+    height: 2px;
+    display: block;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+    border-radius: 2px;
+}
+.pointers > * > .active > b {
+    -webkit-animation-name: zuckSlideTime;
+    animation-name: zuckSlideTime;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+}
+
+.pointers > * > .active > b.paused {
+    animation-play-state: paused;
+}

@@ -1,0 +1,19 @@
+<div class="insta-stories" [ngClass]="{'hide': hideStories}">
+    <div class="pointers">
+      <div class="wrap">
+  
+        <span *ngFor="let story of stories" [ngClass]="{'active': story.isActive, 'seen' : story.isSeen }" id="1" data-index="0" data-item-id="">
+          <b [ngStyle]="{'animation-duration': story.duration}" [ngClass]="{'paused': timer.isPaused }"></b>
+        </span>
+  
+      </div>
+    </div>
+    <div class="slides">
+      <div class="slide" *ngFor="let story of stories" [ngClass]="{'active': story.isActive}">
+        <span class="slide_cover" (touchstart)="pauseTimer()" (touchend)="resumeTimer()" ></span>
+        <span class="slide_prev" (click)="prevSlide()" (touchstart)="pauseTimer()" (touchend)="resumeTimer()"></span>
+        <span class="slide_next" (click)="nextSlide()" (touchstart)="pauseTimer()" (touchend)="resumeTimer()"></span>
+        <img src="{{story.url}}" />
+      </div>
+    </div>
+</div>
