@@ -1,27 +1,58 @@
-# MyWksp
+# adv-stories
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.4.
+A very simple component that creates a slide-show much like the Instagram Stories.
 
-## Development server
+## Getting Started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Installing and Importing
 
-## Code scaffolding
+Install the package by command:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```sh
+    npm install adv-stories --save
+```
 
-## Build
+Import the module
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```ts
+import { AdvStoriesModule } from "adv-stories";
 
-## Running unit tests
+@NgModule({
+    imports: [
+        ...
+        AdvStoriesModule
+    ],
+    declarations: [...],
+    providers: [...]
+})
+export class AppModule {}
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Using 
 
-## Running end-to-end tests
+```html
+    <adv-stories [stories]="stories"></adv-stories>
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+### Options 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+You can set options as follows:
+
+```html
+    <!-- example for pt-BR money -->
+    <input currencyMask [(ngModel)]="value" [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"/>
+```
+
+```ts
+    stories =[
+        {url:'assets/stories/01.jpg', duration: '3s'},
+        {url:'assets/stories/02.jpg', duration: '3s'},
+        {url:'assets/stories/03.jpg', duration: '3s'},
+        {url:'assets/stories/01.jpg', duration: '3s'},
+        {url:'assets/stories/02.jpg', duration: '3s'},
+        {url:'assets/stories/03.jpg', duration: '3s'},
+    ]
+```
+
+## Questions? Open a Issue!
