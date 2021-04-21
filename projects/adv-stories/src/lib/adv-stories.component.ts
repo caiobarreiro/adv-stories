@@ -9,12 +9,17 @@ import { Timer } from './Timer';
 })
 export class AdvStoriesComponent implements OnInit {
 
-  @Input() stories:Story[] = []
+  @Input() stories:any[] = []
+
+  @Input() timer_color:string = "#fff"
 
   timer: Timer;
   hideStories:boolean = true;
 
   ngOnInit() {
+    this.stories = this.stories.map(s => {
+      return new Story(s.url, s.duration)
+    })
     this.start()
   }
 
@@ -91,6 +96,15 @@ export class AdvStoriesComponent implements OnInit {
       }
       
     }
+  }
+  
+  reset() {
+    this.timer.clear()
+    this.stories.forEach((s: Story) => {
+      s.isSeen = false;
+      s.isActive = false;
+    })
+    this.start(0)
   }
 
 }
