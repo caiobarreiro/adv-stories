@@ -9,9 +9,11 @@ import { Timer } from './Timer';
 })
 export class AdvStoriesComponent implements OnInit {
 
-  @Input() stories:any[] = []
+  @Input() stories:any[] = [];
 
-  @Input() timer_color:string = "#fff"
+  @Input() timer_color:string = "#fff";
+
+  @Input() background_color:string = "#191919";
 
   timer: Timer;
   hideStories:boolean = true;
@@ -20,7 +22,8 @@ export class AdvStoriesComponent implements OnInit {
     this.stories = this.stories.map(s => {
       return new Story(s.url, s.duration)
     })
-    this.start()
+    this.start();
+    console.log(this.background_color);
   }
 
   async start(startFrom = 0) {
